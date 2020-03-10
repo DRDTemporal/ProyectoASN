@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "905715731351",
+    "firebase_url": "https://molten-box-215004.firebaseio.com",
+    "project_id": "molten-box-215004",
+    "storage_bucket": "molten-box-215004.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905715731351:android:68341b16b38aa4360dd2d2",
+        "android_client_info": {
+          "package_name": "com.proyecto.asn.proyectoasn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "905715731351-3cpuehp4bud6gifh2dnp2hue9fh1nvg5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.proyecto.asn.proyectoasn",
+            "certificate_hash": "ab147a7555aa7e976ca0f13cc8ac3837c8a25097"
+          }
+        },
+        {
+          "client_id": "905715731351-uf89m1tphcbpi1rffv6cm1edl3d6817o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5F-1BzelansuK5i9fukp5JrPmwSIlPak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "905715731351-uf89m1tphcbpi1rffv6cm1edl3d6817o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
