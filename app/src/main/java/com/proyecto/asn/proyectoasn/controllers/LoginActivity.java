@@ -204,7 +204,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
     }
 
-    // Método para  la utilización del onClick a los items.
+    // Método para la utilización del onClick a los items.
     @Override
     public void onClick(View v) {
         switch (v.getId()){

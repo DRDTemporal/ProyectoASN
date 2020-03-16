@@ -29,4 +29,5 @@ public class Clase {
     public void setAlumnos(List<String> alumnos) {
         this.alumnos = alumnos;
     }
+
 }
