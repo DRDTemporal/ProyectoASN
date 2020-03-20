@@ -85,11 +85,9 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Log.d("Inicio de Sesión", "signInWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
                     updateUI(user);
                     findViewById(R.id.pbLogin).setVisibility(INVISIBLE);
-                    Toast.makeText(LoginActivity.this, R.string.welcome, Toast.LENGTH_SHORT).show();
                 } else {
                     Log.w("Inicio de sesión", "signInWithEmail:failure", task.getException());
                     Toast.makeText(LoginActivity.this, R.string.el_usuario_no_registrado,

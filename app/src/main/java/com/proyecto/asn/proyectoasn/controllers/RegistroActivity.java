@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -52,6 +53,9 @@ public class RegistroActivity extends AppCompatActivity implements OnClickListen
 
         btnRegistrar = findViewById(R.id.btnRegistrar);
         btnCancelar = findViewById(R.id.btnCancelar);
+
+        btnRegistrar.setOnClickListener(this);
+        btnCancelar.setOnClickListener(this);
     }
 
     // Método para inicializar la autentificación de Firebase.
@@ -65,8 +69,6 @@ public class RegistroActivity extends AppCompatActivity implements OnClickListen
     private void registarUsuario() {
         if (compareToPasswords()) {
             createAccount(txtEmail.getText().toString(),txtContrasena.getText().toString());
-        }else {
-            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -74,7 +76,6 @@ public class RegistroActivity extends AppCompatActivity implements OnClickListen
     // Método encargado de crear la cuenta.
     private void createAccount(String email, String password) {
         showProgressDialog();
-
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
             @Override
@@ -84,10 +85,12 @@ public class RegistroActivity extends AppCompatActivity implements OnClickListen
                     FirebaseUser user = mAuth.getCurrentUser();
                     updateUI(user);
                     databaseReference.child("profesor").push().setValue(datosProfesor());
+                    Log.e("Usuario","Se creo el usuario correctamente" );
                 } else {
                     // If sign in fails, display a message to the user.
                     Toast.makeText(RegistroActivity.this, "Error en la creación de usuario.",
                             Toast.LENGTH_SHORT).show();
+
                     updateUI(null);
                 }
 
