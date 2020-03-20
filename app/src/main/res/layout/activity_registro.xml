@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
     tools:context=".controllers.RegistroActivity">
 
 
@@ -14,6 +15,8 @@
         android:layout_marginTop="32dp"
         android:text="@string/registro_usuario"
         android:textSize="36sp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,6 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:hint="@string/correo_electronico"
             android:importantForAutofill="no"
             android:inputType="textEmailAddress" />
@@ -51,6 +56,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:hint="@string/contrasena"
             android:importantForAutofill="no"
             android:inputType="textPassword" />
@@ -60,6 +67,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:hint="@string/confirmar_contrasena"
             android:importantForAutofill="no"
             android:inputType="textPassword" />
@@ -70,6 +79,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:hint="@string/nombres"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:importantForAutofill="no" />
 
         <EditText
@@ -78,6 +89,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:hint="@string/apellidos"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:importantForAutofill="no" />
 
         <LinearLayout
@@ -91,6 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:layout_weight="1"
+                android:background="@android:color/white"
                 android:text="@string/cancelar" />
 
             <Button
@@ -98,6 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
+                android:background="@android:color/white"
                 android:layout_weight="1"
                 android:text="@string/registrar" />
 
