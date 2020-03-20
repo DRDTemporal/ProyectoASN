@@ -60,7 +60,7 @@ public class RegistroActivity extends AppCompatActivity implements OnClickListen
         mAuth = FirebaseAuth.getInstance();
 
     }
-    
+
     // Método el cual hará los procesos para el registro de usuario..
     private void registarUsuario() {
         if (compareToPasswords()) {
