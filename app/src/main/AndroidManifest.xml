@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controllers.RegistroActivity"></activity>
+        <activity android:name=".controllers.VideoActivity" />
+        <activity android:name=".controllers.RegistroActivity" />
         <activity android:name=".controllers.MenuActivity" />
         <activity android:name=".controllers.LoginActivity" />
         <activity android:name=".controllers.MainActivity">
