@@ -52,5 +52,7 @@
     <string name="actualizar">Actualizar</string>
     <string name="actualizar_contrasena">Actualizar o reinciar contraseña.</string>
     <string name="todo">Todo</string>
+    <string name="error_video">Error al obtener el vídeo.</string>
+    <string name="califica_video">Califica el vídeo anterior.</string>
 
 </resources>

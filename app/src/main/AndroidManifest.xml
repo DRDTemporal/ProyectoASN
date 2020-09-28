@@ -11,7 +11,10 @@
         android:roundIcon="@drawable/app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controllers.VideoActivity" />
+        <activity android:name=".controllers.CalficarVideoActivity"></activity>
+        <activity
+            android:name=".controllers.VideoActivity"
+            android:configChanges="screenSize|orientation|keyboardHidden" />
         <activity android:name=".controllers.RegistroActivity" />
         <activity android:name=".controllers.MenuActivity" />
         <activity android:name=".controllers.LoginActivity" />
