@@ -13,6 +13,32 @@
         android:text="Show Video"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.826" />
+
+    <Button
+        android:id="@+id/btnNiño"
+        android:layout_width="174dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginLeft="152dp"
+        android:background="@drawable/fondo"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="@+id/btnNiña"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnNiña" />
+
+    <Button
+        android:id="@+id/btnNiña"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:background="@drawable/app"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="149dp"
+        android:text="Button"
+        app:layout_constraintStart_toEndOf="@+id/btnShow"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
