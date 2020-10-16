@@ -1,15 +1,16 @@
 package com.proyecto.asn.proyectoasn.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Clase {
     private  Profesor profesor;
-    private List<String> alumnos;
+    private List<Alumno> alumnos = new ArrayList<>();
 
     public Clase() {
     }
 
-    public Clase(Profesor profesor, List<String> alumnos) {
+    public Clase(Profesor profesor, List<Alumno> alumnos) {
         this.profesor = profesor;
         this.alumnos = alumnos;
     }
@@ -22,12 +23,11 @@ public class Clase {
         this.profesor = profesor;
     }
 
-    public List<String> getAlumnos() {
+    public List<Alumno> getAlumnos() {
         return alumnos;
     }
 
-    public void setAlumnos(List<String> alumnos) {
+    public void setAlumnos(List<Alumno> alumnos) {
         this.alumnos = alumnos;
     }
-
 }

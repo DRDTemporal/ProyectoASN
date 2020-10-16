@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        inizialite();
-        inizialiteFirebase();
+        initialize();
+        initializeFirebase();
         crearSplash();
     }
 
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Método para inicializar las vistas y variables.
-    private void inizialite(){
+    private void initialize(){
         imageView = findViewById(R.id.imgSplash);
         imageView.setVisibility(View.INVISIBLE);
         bandera= true;
@@ -50,9 +50,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Método para inicializar Firebase.
-    private void inizialiteFirebase() {
+    private void initializeFirebase() {
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
+
     }
 
     // Método para la creacion del Splash.
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /* Método para  saber si el usuario ha ingresado sesión para entrar al MenuActivity,
-        sino lo está entrará al LoginActivity por defecto.
+        sino lo está, entrará al LoginActivity por defecto.
     */
     private void updateUI(FirebaseUser user) {
         if (user != null) {

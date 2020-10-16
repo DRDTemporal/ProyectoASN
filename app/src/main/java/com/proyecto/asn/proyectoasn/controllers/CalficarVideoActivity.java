@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.proyecto.asn.proyectoasn.R;
 
 import java.util.ArrayList;
@@ -19,16 +23,20 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
     // Declaración de lista para los botones.
     private List<ImageButton> btnsCalfiicaciones =new ArrayList();
 
+    // Declaración de variables
+    DatabaseReference refAlumnos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calficar_video);
         initialize();
+        initializeFirebase();
         ingresarOnClickListeners();
     }
 
     // Método que agrega a una lista de ImageButton los botones correspondientes.
-    void initialize(){
+    private void initialize(){
         btnsCalfiicaciones.add((ImageButton) findViewById(R.id.btnCalificacion1));
         btnsCalfiicaciones.add((ImageButton) findViewById(R.id.btnCalificacion2));
         btnsCalfiicaciones.add((ImageButton) findViewById(R.id.btnCalificacion3));
@@ -41,6 +49,12 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
         for ( ImageButton btn: btnsCalfiicaciones)  {
             btn.setOnClickListener(this);
         }
+    }
+
+    // Método para inicializar Firebase.
+    private void initializeFirebase() {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        refAlumnos = database.getReference("alumnos");
     }
 
     // Método que permite activar o desactivar los botones (true = activados; false = desactivados)
@@ -81,7 +95,9 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
 
     // Método que ingresa a la base de datos la calificación, con el nombre del usuario.
     private void ingresarCalificacion(int calificacion) {
-        Toast.makeText(this, "Calificación: "+calificacion, Toast.LENGTH_SHORT).show();
+        refAlumnos.child(InteraccionActivity.idAlumno).child("puntucacion").setValue(calificacion);
         cambiarEstadoBoton(false);
     }
+
+
 }

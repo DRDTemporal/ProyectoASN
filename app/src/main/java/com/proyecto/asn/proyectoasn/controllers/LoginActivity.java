@@ -42,14 +42,14 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
-        inizialite();
-        inizialiteFirebase();
+        initialize();
+        initializeFirebase();
         setOnClickButtons();
 
     }
 
     //Método para inicializar las vistas
-    private void inizialite() {
+    private void initialize() {
         btnLogin = findViewById(R.id.btnLogin);
         btnRegistrar = findViewById(R.id.btnRegistrar);
         txtEmail = findViewById(R.id.txtEmail);
@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     }
 
     //Método para inicializar la autentificación de Firebase
-    private void inizialiteFirebase() {
+    private void initializeFirebase() {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
     }
