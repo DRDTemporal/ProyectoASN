@@ -54,5 +54,22 @@
     <string name="todo">Todo</string>
     <string name="error_video">Error al obtener el vídeo.</string>
     <string name="califica_video">Califica el vídeo anterior.</string>
+    <string name="ingrese_el_nombre_de_la_clase">Ingrese el nombre del curso</string>
+    <string name="ingrese_el_nombre_del_alumno">Ingrese el nombre del alumno</string>
+    <string name="agregar">Agregar</string>
+    <string name="agregado_clase">Se ha agregado la curso</string>
+    <string name="vacio_nombre_clase">Está vacio el campo del nombre del curso</string>
+    <string name="editado_clase">Se ha editado el curso</string>
+    <string name="eliminar_curso">Eliminar Curso</string>
+    <string name="pregunta_eliminar_curso">¿Quieres eliminar este curso?</string>
+    <string name="afirmacion_eliminado_curso">Se ha eliminado el curso</string>
+    <string name="Ingrese_el_apellido_del_alumno">Ingrese el apellido del alumno</string>
+    <string name="agregado_alumno">Se ha agregado al alumno</string>
+    <string name="vacios_campos">Está vacio alguno de los campos</string>
+    <string name="puntuacion_en_el_test">Puntuacion en el test: </string>
+    <string name="test_no_realizado">Test no realizado</string>
+    <string name="realizar_test">Realizar Test</string>
+    <string name="editado_alumno">Se ha editado el alumno</string>
+    <string name="afirmacion_eliminado_alumno" >Se ha eliminado el alumno</string>
 
 </resources>

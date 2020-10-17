@@ -1,7 +1,12 @@
 package com.proyecto.asn.proyectoasn.models;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.TextView;
+
+import com.proyecto.asn.proyectoasn.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView.Adapter;
 
 public class RecyclerAdapterAlumnos extends Adapter<RecyclerAdapterAlumnos.Holder> {
     //Declaración de variables
-    private List<Alumno> listaAlumnos = new ArrayList<>();
+    private List<Alumno> listaAlumnos;
     private OnCustomItemClickListener mlistener;
 
     public  interface OnCustomItemClickListener{
@@ -30,7 +35,8 @@ public class RecyclerAdapterAlumnos extends Adapter<RecyclerAdapterAlumnos.Holde
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_alumno,parent,false);
+        return new Holder(view, mlistener);
     }
 
     @Override
@@ -45,15 +51,15 @@ public class RecyclerAdapterAlumnos extends Adapter<RecyclerAdapterAlumnos.Holde
 
 
     public class Holder extends RecyclerView.ViewHolder {
-        public Holder(@NonNull View itemView) {
+        public Holder(@NonNull View itemView, final OnCustomItemClickListener mlistener) {
             super(itemView);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (mlistener!=null){
+                    if (mlistener !=null){
                         int position = getLayoutPosition();
                         if (position!=RecyclerView.NO_POSITION){
-                            mlistener.itemClick(position);
+                           mlistener.itemClick(position);
                         }
                     }
                 }
@@ -61,7 +67,10 @@ public class RecyclerAdapterAlumnos extends Adapter<RecyclerAdapterAlumnos.Holde
         }
 
         public void connectData(Alumno alumno){
-
+            TextView txtNombreClase = itemView.findViewById(R.id.txtNombreAlumno);
+            CheckBox cbRealizado = itemView.findViewById(R.id.cbRealizado);
+            txtNombreClase.setText(alumno.getNombreCompleto());
+            cbRealizado.setChecked(alumno.getPuntuacion() > 0);
         }
     }
 }

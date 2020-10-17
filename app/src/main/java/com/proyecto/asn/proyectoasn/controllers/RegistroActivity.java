@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.proyecto.asn.proyectoasn.R;
+import com.proyecto.asn.proyectoasn.models.Constants;
 import com.proyecto.asn.proyectoasn.models.Profesor;
 
 public class RegistroActivity extends AppCompatActivity implements OnClickListener {
@@ -83,9 +84,8 @@ public class RegistroActivity extends AppCompatActivity implements OnClickListen
                 if (task.isSuccessful()) {
                     // Sign in success, update UI with the signed-in user's information
                     FirebaseUser user = mAuth.getCurrentUser();
+                    databaseReference.child(Constants.CHILD_PROFESOR).child(user.getUid()).setValue(datosProfesor());
                     updateUI(user);
-                    databaseReference.child("profesor").push().setValue(datosProfesor());
-                    Log.e("Usuario","Se creo el usuario correctamente" );
                 } else {
                     // If sign in fails, display a message to the user.
                     Toast.makeText(RegistroActivity.this, "Error en la creación de usuario.",
@@ -218,7 +218,7 @@ public class RegistroActivity extends AppCompatActivity implements OnClickListen
 
     }
 
-    // Función que devuelve un objeto UserData para cargar los datos de las vistas en ese dicho objeto.
+    // Función que devuelve un objeto Profesor para cargar los datos de las vistas en ese dicho objeto.
     private Profesor datosProfesor(){
         Profesor data = new Profesor();
         data.setEmaill(txtEmail.getText().toString());

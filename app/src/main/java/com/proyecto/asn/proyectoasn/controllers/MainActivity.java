@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 import com.proyecto.asn.proyectoasn.R;
 
 import java.util.Timer;
@@ -23,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
     // Declaración de constantes y variables.
     ImageView imageView;
-    private FirebaseAuth mAuth;
     boolean bandera = true;
     int valor =0;
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     // Método para inicializar Firebase.
     private void initializeFirebase() {
         FirebaseApp.initializeApp(this);
-        mAuth = FirebaseAuth.getInstance();
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
     }
 
@@ -118,8 +118,7 @@ public class MainActivity extends AppCompatActivity {
                         imageView.setVisibility(View.INVISIBLE);
                         super.onAnimationEnd(animation);
 
-                        FirebaseUser currentUser = mAuth.getCurrentUser();
-                        updateUI(currentUser);
+                        intoLogin();
                     }
                 });
 
@@ -132,8 +131,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         imageView.setVisibility(View.VISIBLE);
-                        FirebaseUser currentUser = mAuth.getCurrentUser();
-                        updateUI(currentUser);
+                        intoLogin();
                     }
                 };
                 new Timer().schedule(timerTask,1000);
@@ -146,8 +144,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     imageView.setVisibility(View.VISIBLE);
-                    FirebaseUser currentUser = mAuth.getCurrentUser();
-                    updateUI(currentUser);
+                    intoLogin();
                 }
             };
             new Timer().schedule(timerTask,1000);
@@ -156,20 +153,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /* Método para  saber si el usuario ha ingresado sesión para entrar al MenuActivity,
-        sino lo está, entrará al LoginActivity por defecto.
+    /* Método para ingresar al login después de haber pasado el tiempo en el Slash
     */
-    private void updateUI(FirebaseUser user) {
-        if (user != null) {
-            Intent intent = new Intent(MainActivity.this,MenuActivity.class);
-            startActivity(intent);
-            finish();
-
-        } else {
-            Intent intent = new Intent(MainActivity.this,LoginActivity.class);
-            startActivity(intent);
-            finish();
-        }
+    private void intoLogin() {
+        Intent intent;
+        intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

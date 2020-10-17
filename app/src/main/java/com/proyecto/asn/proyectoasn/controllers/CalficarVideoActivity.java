@@ -9,9 +9,11 @@ import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.proyecto.asn.proyectoasn.R;
+import com.proyecto.asn.proyectoasn.models.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +26,9 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
     private List<ImageButton> btnsCalfiicaciones =new ArrayList();
 
     // Declaración de variables
-    DatabaseReference refAlumnos;
+    private DatabaseReference dbReference;
+    private FirebaseUser user;
+    private DatabaseReference alumnoRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +57,10 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
 
     // Método para inicializar Firebase.
     private void initializeFirebase() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        refAlumnos = database.getReference("alumnos");
+        dbReference = FirebaseDatabase.getInstance().getReference();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        alumnoRef = dbReference.child(Constants.CHILD_PROFESOR).child(user.getUid())
+                .child(Constants.CHILD_CURSOS).child(CursosActivity.CHILD_CURSO).child(DetalleCursoActivity.CHILD_ALUMNO);
     }
 
     // Método que permite activar o desactivar los botones (true = activados; false = desactivados)
@@ -95,7 +101,7 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
 
     // Método que ingresa a la base de datos la calificación, con el nombre del usuario.
     private void ingresarCalificacion(int calificacion) {
-        refAlumnos.child(InteraccionActivity.idAlumno).child("puntucacion").setValue(calificacion);
+        alumnoRef.child(Constants.CHILD_ALUMNO_PUNTUACION).setValue(calificacion);
         cambiarEstadoBoton(false);
     }
 

@@ -28,4 +28,8 @@ public class Persona {
         this.apellido = apellido;
     }
 
+    public String getNombreCompleto(){
+        return this.nombre+ " " + this.apellido;
+    }
+
 }

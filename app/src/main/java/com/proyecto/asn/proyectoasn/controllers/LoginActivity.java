@@ -191,7 +191,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             }
         });
 
-        btnLogin.setOnClickListener(new OnClickListener() {
+        btnCancelar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.cancel();
