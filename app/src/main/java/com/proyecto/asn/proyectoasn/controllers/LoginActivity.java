@@ -143,7 +143,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     // Método para ingresar a la pantalla de inicio.
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            Intent intent = new Intent(LoginActivity.this,MenuActivity.class);
+            Intent intent = new Intent(LoginActivity.this,CursosActivity.class);
             startActivity(intent);
             finish();
 

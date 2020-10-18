@@ -40,7 +40,7 @@ public class CursosActivity extends AppCompatActivity implements OnClickListener
     private List<Curso> listaCursos;
     public static String CHILD_CURSO="";
     private FirebaseUser user;
-    DatabaseReference cursosRef;
+    public static DatabaseReference cursosRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +78,7 @@ public class CursosActivity extends AppCompatActivity implements OnClickListener
                 Curso tmpCurso;
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     tmpCurso = postSnapshot.getValue(Curso.class);
-                    tmpCurso.setId(snapshot.getKey());
+                    tmpCurso.setId(postSnapshot.getKey());
                     tmpListCursos.add(tmpCurso);
                 }
                 listaCursos = tmpListCursos;
@@ -110,15 +110,15 @@ public class CursosActivity extends AppCompatActivity implements OnClickListener
     private void nuevoCurso() {
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.item_nuevo_curso);
-        final EditText txtNombreCurso = dialog.findViewById(R.id.txtNombreCurso);
+        final EditText txtNuevoCurso = dialog.findViewById(R.id.txtNuevoCurso);
         final Button btnAgregar = dialog.findViewById(R.id.btnAgregar);
         final Button btnCancelar = dialog.findViewById(R.id.btnCancelar);
 
         btnAgregar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!txtNombreCurso.getText().toString().isEmpty()){
-                    cursosRef.push().setValue(new Curso(txtNombreCurso.getText().toString()));
+                if(!txtNuevoCurso.getText().toString().isEmpty()){
+                    cursosRef.push().setValue(new Curso(txtNuevoCurso.getText().toString()));
                     Toast.makeText(CursosActivity.this, getString(R.string.agregado_clase), Toast.LENGTH_SHORT).show();
                     dialog.cancel();
                 }else{

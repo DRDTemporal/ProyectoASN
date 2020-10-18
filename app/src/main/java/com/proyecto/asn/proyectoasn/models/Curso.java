@@ -1,12 +1,14 @@
 package com.proyecto.asn.proyectoasn.models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Curso {
     private String id;
     private String nombre;
-    private List<Alumno> alumnos = new ArrayList<>();
+    private Map<String ,Alumno> alumnos = new HashMap<>();
 
     public Curso() {
     }
@@ -31,11 +33,11 @@ public class Curso {
         this.nombre = nombre;
     }
 
-    public List<Alumno> getAlumnos() {
+    public Map<String, Alumno> getAlumnos() {
         return alumnos;
     }
 
-    public void setAlumnos(List<Alumno> alumnos) {
+    public void setAlumnos(Map<String, Alumno> alumnos) {
         this.alumnos = alumnos;
     }
 }

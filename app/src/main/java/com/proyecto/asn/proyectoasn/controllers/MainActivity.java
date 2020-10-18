@@ -52,7 +52,12 @@ public class MainActivity extends AppCompatActivity {
     // Método para inicializar Firebase.
     private void initializeFirebase() {
         FirebaseApp.initializeApp(this);
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        try {
+            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        }catch (Exception ignored){
+
+        }
+
 
     }
 
