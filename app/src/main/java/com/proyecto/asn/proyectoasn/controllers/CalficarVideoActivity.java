@@ -2,6 +2,7 @@ package com.proyecto.asn.proyectoasn.controllers;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -59,8 +60,7 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
     private void initializeFirebase() {
         dbReference = FirebaseDatabase.getInstance().getReference();
         user = FirebaseAuth.getInstance().getCurrentUser();
-        alumnoRef = dbReference.child(Constants.CHILD_PROFESOR).child(user.getUid())
-                .child(Constants.CHILD_CURSOS).child(CursosActivity.CHILD_CURSO).child(DetalleCursoActivity.CHILD_ALUMNO);
+        alumnoRef = MenuActivity.alumnoRef;
     }
 
     // Método que permite activar o desactivar los botones (true = activados; false = desactivados)
@@ -71,6 +71,7 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
     }
 
     // Método sobreescrito que permite saber a que vista se le está dando click.
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -103,6 +104,7 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
     private void ingresarCalificacion(int calificacion) {
         alumnoRef.child(Constants.CHILD_ALUMNO_PUNTUACION).setValue(calificacion);
         cambiarEstadoBoton(false);
+        finish();
     }
 
 

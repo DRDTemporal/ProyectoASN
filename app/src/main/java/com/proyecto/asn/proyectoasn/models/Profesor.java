@@ -1,17 +1,19 @@
 package com.proyecto.asn.proyectoasn.models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Profesor extends Persona{
 
     private String emaill;
-    private List<Curso> curso = new ArrayList<>();
+    private Map<String ,Curso> curso = new HashMap<>();
 
     public Profesor() {
     }
 
-    public Profesor(String nombre, String apellido, String emaill, List<Curso> curso) {
+    public Profesor(String nombre, String apellido, String emaill, Map<String, Curso> curso) {
         super(nombre, apellido);
         this.emaill = emaill;
         this.curso = curso;
@@ -25,8 +27,11 @@ public class Profesor extends Persona{
         this.emaill = emaill;
     }
 
-    public List<Curso> getCurso() {
+    public Map<String, Curso> getCurso() {
         return curso;
     }
 
+    public void setCurso(Map<String, Curso> curso) {
+        this.curso = curso;
+    }
 }

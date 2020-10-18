@@ -5,10 +5,11 @@ import com.proyecto.asn.proyectoasn.R;
 public class Constants {
     public static final String CHILD_PROFESOR = "profesor";
     public static final String CHILD_CURSOS = "cursos";
+    public static final String CHILD_ALUMNOS = "alumnos";
     public static final String CHILD_CURSO_NOMBRE = "nombre";
     public static final String CHILD_ALUMNO_NOMBRE = "nombre";
     public static final String CHILD_ALUMNO_APELLIDO = "apellido";
-    public static final String CHILD_ALUMNO_PUNTUACION = "puntucacion";
+    public static final String CHILD_ALUMNO_PUNTUACION = "puntuacion";
     public static final int  DIRECTORIO_VIDEOS [] ={
             R.raw.video1,
             R.raw.video2,

@@ -17,12 +17,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.proyecto.asn.proyectoasn.R;
 import com.proyecto.asn.proyectoasn.models.Alumno;
@@ -33,16 +30,14 @@ public class DetalleAlumnoActivity extends AppCompatActivity implements OnClickL
     // Declaración de variables
     TextView txtNombreAlumno, txtTestNoRealizado;
     ImageView imgTest;
-    private DatabaseReference dbReference;
-    private FirebaseUser user;
-    DatabaseReference alumnoRef;
+    public static DatabaseReference alumnoRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_alumno);
         initialize();
-        initializeFirebase();
+        initializeFirebaseRefs();
         getInfoAlumno();
     }
 
@@ -50,16 +45,16 @@ public class DetalleAlumnoActivity extends AppCompatActivity implements OnClickL
     private void initialize() {
         txtNombreAlumno = findViewById(R.id.txtNombreAlumno);
         txtTestNoRealizado = findViewById(R.id.txtTestNoRealizado);
+        imgTest = findViewById(R.id.imgCalificacion);
         findViewById(R.id.btnEditar).setOnClickListener(this);
         findViewById(R.id.btnEliminar).setOnClickListener(this);
         findViewById(R.id.btnRealizarTest).setOnClickListener(this);
     }
 
-    private void initializeFirebase() {
-        dbReference = FirebaseDatabase.getInstance().getReference();
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        alumnoRef = dbReference.child(Constants.CHILD_PROFESOR).child(user.getUid())
-                .child(Constants.CHILD_CURSOS).child(CursosActivity.CHILD_CURSO).child(DetalleCursoActivity.CHILD_ALUMNO);
+    private void initializeFirebaseRefs() {
+        alumnoRef = DetalleCursoActivity.alumnosRef.child(DetalleCursoActivity.CHILD_ALUMNO);
+        MenuActivity.alumnoRef = alumnoRef;
+
     }
 
     private void getInfoAlumno(){
@@ -127,8 +122,8 @@ public class DetalleAlumnoActivity extends AppCompatActivity implements OnClickL
     }
 
     private void enviarAInteraccionActivity() {
-        Intent intent = new Intent(DetalleAlumnoActivity.this, InteraccionActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        Intent intent = new Intent(DetalleAlumnoActivity.this, MenuActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
 
     }

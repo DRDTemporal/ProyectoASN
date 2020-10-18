@@ -40,16 +40,15 @@ public class DetalleCursoActivity extends AppCompatActivity implements OnClickLi
     RecyclerView rvAlumnos;
     List<Alumno> listaAlumnos = new ArrayList<>();
     public static String CHILD_ALUMNO="";
-    private DatabaseReference dbReference;
-    private FirebaseUser user;
     DatabaseReference cursoRef;
+    public  static DatabaseReference alumnosRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_curso);
         initialize();
-        initializeFirebase();
+        initializeFirebaseRefs();
         obtenerAlumnos();
     }
 
@@ -61,22 +60,20 @@ public class DetalleCursoActivity extends AppCompatActivity implements OnClickLi
         rvAlumnos = findViewById(R.id.rvAlumnos);
     }
 
-    private void initializeFirebase() {
-        dbReference = FirebaseDatabase.getInstance().getReference();
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        cursoRef = dbReference.child(Constants.CHILD_PROFESOR).child(user.getUid()).child(Constants.CHILD_CURSOS).child(CursosActivity.CHILD_CURSO);
+    private void initializeFirebaseRefs() {
+        cursoRef = CursosActivity.cursosRef.child(CursosActivity.CHILD_CURSO);
+        alumnosRef = cursoRef.child(Constants.CHILD_ALUMNOS);
     }
 
     private void obtenerAlumnos(){
-
-        cursoRef.addValueEventListener(new ValueEventListener() {
+        alumnosRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Alumno> tmpListAlumnos = new ArrayList<>();
                 Alumno tmpAlumno;
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     tmpAlumno = postSnapshot.getValue(Alumno.class);
-                    tmpAlumno.setId(snapshot.getKey());
+                    tmpAlumno.setId(postSnapshot.getKey());
                     tmpListAlumnos.add(tmpAlumno);
 
                 }
@@ -139,7 +136,7 @@ public class DetalleCursoActivity extends AppCompatActivity implements OnClickLi
             @Override
             public void onClick(View v) {
                 if(!txtNombreAlumno.getText().toString().isEmpty() && !txtApellidoAlumno.getText().toString().isEmpty()){
-                    cursoRef.push().setValue(new Alumno(txtNombreAlumno.getText().toString(),txtApellidoAlumno.getText().toString()));
+                    alumnosRef.push().setValue(new Alumno(txtNombreAlumno.getText().toString(),txtApellidoAlumno.getText().toString()));
                     Toast.makeText(DetalleCursoActivity.this, getString(R.string.agregado_alumno), Toast.LENGTH_SHORT).show();
                     dialog.cancel();
                 }else{
