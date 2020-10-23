@@ -21,25 +21,24 @@
 
     <Button
         android:id="@+id/btnNiño"
-        android:layout_width="174dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="152dp"
-        android:layout_marginLeft="152dp"
-        android:background="@drawable/fondo"
-        android:text="Button"
+        android:layout_width="220dp"
+        android:layout_height="289dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/ninof"
         app:layout_constraintBottom_toBottomOf="@+id/btnNiña"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnNiña" />
+        app:layout_constraintTop_toTopOf="@+id/btnNiña"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btnNiña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:background="@drawable/app"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="149dp"
-        android:text="Button"
+        android:layout_width="220dp"
+        android:layout_height="289dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/ninaf"
         app:layout_constraintStart_toEndOf="@+id/btnShow"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

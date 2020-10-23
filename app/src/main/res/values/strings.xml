@@ -53,7 +53,7 @@
     <string name="actualizar_contrasena">Actualizar o reinciar contraseña.</string>
     <string name="todo">Todo</string>
     <string name="error_video">Error al obtener el vídeo.</string>
-    <string name="califica_video">Califica el vídeo anterior.</string>
+    <string name="califica_video">¿Como te sientes después de ver el video?.</string>
     <string name="ingrese_el_nombre_de_la_clase">Ingrese el nombre del curso</string>
     <string name="ingrese_el_nombre_del_alumno">Ingrese el nombre del alumno</string>
     <string name="agregar">Agregar</string>
