@@ -80,14 +80,14 @@ public class DetalleAlumnoActivity extends AppCompatActivity implements OnClickL
             // TODO: agregar los emojis.
             switch (alumno.getPuntuacion()){
                 case 1:
+                    imgTest.setBackground(getResources().getDrawable(R.drawable.ctriste));
                     break;
                 case 2:
+                    imgTest.setBackground(getResources().getDrawable(R.drawable.cfeliz));
                     break;
                 case 3:
+                    imgTest.setBackground(getResources().getDrawable(R.drawable.cenojada));
                     break;
-                case 4:
-                    break;
-                case 5:
 
             }
         }

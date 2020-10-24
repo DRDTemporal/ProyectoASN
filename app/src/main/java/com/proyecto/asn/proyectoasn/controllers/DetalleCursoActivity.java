@@ -159,7 +159,7 @@ public class DetalleCursoActivity extends AppCompatActivity implements OnClickLi
     private void editarCurso() {
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.item_nuevo_curso);
-        final EditText txtNombreCurso = dialog.findViewById(R.id.txtNombreCurso);
+        final EditText txtNombreCurso = dialog.findViewById(R.id.txtNuevoCurso);
         final Button btnAgregar = dialog.findViewById(R.id.btnAgregar);
         final Button btnCancelar = dialog.findViewById(R.id.btnCancelar);
 

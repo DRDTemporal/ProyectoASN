@@ -28,12 +28,6 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         saludarUsuario();
-        findViewById(R.id.btnShow).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, VideoActivity.class));
-            }
-        });
 
     }
     // Método el cual muestra un Toast de Bienvenida.

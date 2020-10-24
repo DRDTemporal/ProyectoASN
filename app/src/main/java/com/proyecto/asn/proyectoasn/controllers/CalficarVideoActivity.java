@@ -27,8 +27,6 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
     private List<ImageButton> btnsCalfiicaciones =new ArrayList();
 
     // Declaración de variables
-    private DatabaseReference dbReference;
-    private FirebaseUser user;
     private DatabaseReference alumnoRef;
 
     @Override
@@ -45,8 +43,6 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
         btnsCalfiicaciones.add((ImageButton) findViewById(R.id.btnCalificacion1));
         btnsCalfiicaciones.add((ImageButton) findViewById(R.id.btnCalificacion2));
         btnsCalfiicaciones.add((ImageButton) findViewById(R.id.btnCalificacion3));
-        btnsCalfiicaciones.add((ImageButton) findViewById(R.id.btnCalificacion4));
-        btnsCalfiicaciones.add((ImageButton) findViewById(R.id.btnCalificacion5));
     }
 
     // Método para ingresar las escuchas de las imagenes.
@@ -58,8 +54,6 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
 
     // Método para inicializar Firebase.
     private void initializeFirebase() {
-        dbReference = FirebaseDatabase.getInstance().getReference();
-        user = FirebaseAuth.getInstance().getCurrentUser();
         alumnoRef = MenuActivity.alumnoRef;
     }
 
@@ -86,15 +80,6 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
             case R.id.btnCalificacion3:
                 ingresarCalificacion(3);
                 break;
-
-            case R.id.btnCalificacion4:
-                ingresarCalificacion(4);
-                break;
-
-            case R.id.btnCalificacion5:
-                ingresarCalificacion(5);
-                break;
-
 
         }
 
