@@ -3,6 +3,7 @@ package com.proyecto.asn.proyectoasn.controllers;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -44,9 +45,11 @@ public class MenuActivity extends AppCompatActivity implements OnClickListener {
         switch (v.getId()){
             case R.id.btnNino:
                 modoPresentacion = 0;
+                startActivity(new Intent(MenuActivity.this, InteraccionActivity.class));
                 break;
             case R.id.btnNina:
                 modoPresentacion = 1;
+                startActivity(new Intent(MenuActivity.this, InteraccionActivity.class));
                 break;
         }
 
