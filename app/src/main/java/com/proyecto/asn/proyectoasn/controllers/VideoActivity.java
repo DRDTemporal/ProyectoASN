@@ -17,7 +17,6 @@ import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.upstream.RawResourceDataSource;
 import com.google.android.exoplayer2.util.Util;
@@ -74,7 +73,7 @@ public class VideoActivity extends AppCompatActivity {
 
     // Método qué envía a la actividad CalficiarVideoActivity
     private void calificarVideo() {
-        startActivity(new Intent(this, CalficarVideoActivity.class));
+        startActivity(new Intent(this, CalificarVideoActivity.class));
         finish();
     }
 
