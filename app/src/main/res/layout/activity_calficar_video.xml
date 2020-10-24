@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/video"
-    tools:context=".controllers.CalficarVideoActivity">
+    tools:context=".controllers.CalificarVideoActivity">
 
     <TextView
         android:id="@+id/textView2"

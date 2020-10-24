@@ -70,6 +70,6 @@
     <string name="test_no_realizado">Test no realizado</string>
     <string name="realizar_test">Realizar Test</string>
     <string name="editado_alumno">Se ha editado el alumno</string>
-    <string name="afirmacion_eliminado_alumno" >Se ha eliminado el alumno</string>
+    <string name="afirmacion_eliminado_alumno">Se ha eliminado el alumno</string>
 
 </resources>

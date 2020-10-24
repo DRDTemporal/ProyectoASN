@@ -11,27 +11,38 @@
         android:roundIcon="@drawable/app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controllers.DetalleAlumnoActivity"
+        <activity android:name=".controllers.FinalActivity"
             android:screenOrientation="landscape"/>
-        <activity android:name=".controllers.DetalleCursoActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".controllers.CursosActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".controllers.InteraccionActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".controllers.CalficarVideoActivity"
-            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".controllers.DetalleAlumnoActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".controllers.DetalleCursoActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".controllers.CursosActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".controllers.InteraccionActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".controllers.CalificarVideoActivity"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".controllers.VideoActivity"
             android:configChanges="screenSize|orientation|keyboardHidden"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".controllers.RegistroActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".controllers.MenuActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".controllers.LoginActivity"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".controllers.MainActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".controllers.RegistroActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".controllers.MenuActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".controllers.LoginActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".controllers.MainActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

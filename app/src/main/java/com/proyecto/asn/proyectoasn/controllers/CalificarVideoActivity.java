@@ -3,6 +3,7 @@ package com.proyecto.asn.proyectoasn.controllers;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -21,7 +22,7 @@ import java.util.List;
 
 import static android.view.View.*;
 
-public class CalficarVideoActivity extends AppCompatActivity implements OnClickListener {
+public class CalificarVideoActivity extends AppCompatActivity implements OnClickListener {
 
     // Declaración de lista para los botones.
     private List<ImageButton> btnsCalfiicaciones =new ArrayList();
@@ -89,8 +90,9 @@ public class CalficarVideoActivity extends AppCompatActivity implements OnClickL
     private void ingresarCalificacion(int calificacion) {
         alumnoRef.child(Constants.CHILD_ALUMNO_PUNTUACION).setValue(calificacion);
         cambiarEstadoBoton(false);
-        finish();
+        Intent intent = new Intent(CalificarVideoActivity.this, FinalActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
-
-
+    
 }
