@@ -23,6 +23,7 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
         super.onCreate(savedInstanceState);
         inicializarVista();
         inicializarVistas();
+        hiloParaMostrarImagen();
         sonido =  MediaPlayer.create(this,R.raw.abdomen);
     }
 
@@ -128,6 +129,11 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
     private void mostrarImgNO(){
         findViewById(R.id.imgNO).setVisibility(View.VISIBLE);
         bandera = true;
+
+    }
+
+    private void hiloParaMostrarImagen(){
+        bandera1 = false;
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -150,8 +156,8 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
                 }
             }
         }).start();
-
     }
+
 
     private void sonarInteraccion(int mp3Zona) {
         sonido.stop();
