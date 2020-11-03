@@ -16,7 +16,8 @@ import java.util.TimerTask;
 
 public class InteraccionActivity extends AppCompatActivity  implements OnClickListener{
     MediaPlayer sonido;
-
+    boolean bandera = false;
+    boolean bandera1 = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,15 +127,30 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
 
     private void mostrarImgNO(){
         findViewById(R.id.imgNO).setVisibility(View.VISIBLE);
-        TimerTask timerTask = new TimerTask() {
+        bandera = true;
+        new Thread(new Runnable() {
             @Override
             public void run() {
-                findViewById(R.id.imgNO).setVisibility(View.INVISIBLE);
-            }
-        };
+                while (bandera) {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(bandera1){
+                                findViewById(R.id.imgNO).setVisibility(View.INVISIBLE);
+                                bandera1 = false;
+                            }
 
-        Timer timer = new Timer();
-        timer.schedule(timerTask,2000);
+                        }
+                    });
+                }
+            }
+        }).start();
+
     }
 
     private void sonarInteraccion(int mp3Zona) {
