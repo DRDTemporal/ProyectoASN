@@ -128,7 +128,7 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
 
     private void mostrarImgNO(){
         findViewById(R.id.imgNO).setVisibility(View.VISIBLE);
-        bandera = true;
+        bandera1 = true;
 
     }
 
