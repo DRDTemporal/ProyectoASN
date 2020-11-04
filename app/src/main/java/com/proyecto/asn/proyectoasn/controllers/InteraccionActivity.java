@@ -8,6 +8,8 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.proyecto.asn.proyectoasn.R;
 
@@ -16,8 +18,9 @@ import java.util.TimerTask;
 
 public class InteraccionActivity extends AppCompatActivity  implements OnClickListener{
     MediaPlayer sonido;
-    boolean bandera = false;
+    boolean bandera = true;
     boolean bandera1 = false;
+    ImageView imgNo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +58,7 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
         findViewById(R.id.btnEspalda).setOnClickListener(this);
         findViewById(R.id.btnCabello).setOnClickListener(this);
         findViewById(R.id.btnTrasero).setOnClickListener(this);
+        imgNo = findViewById(R.id.imgNO);
 
     }
 
@@ -127,13 +131,13 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
     }
 
     private void mostrarImgNO(){
-        findViewById(R.id.imgNO).setVisibility(View.VISIBLE);
+        imgNo.setVisibility(View.VISIBLE);
         bandera1 = true;
+
 
     }
 
     private void hiloParaMostrarImagen(){
-        bandera1 = false;
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -147,7 +151,7 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
                         @Override
                         public void run() {
                             if(bandera1){
-                                findViewById(R.id.imgNO).setVisibility(View.INVISIBLE);
+                                imgNo.setVisibility(View.INVISIBLE);
                                 bandera1 = false;
                             }
 
@@ -160,7 +164,6 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
 
 
     private void sonarInteraccion(int mp3Zona) {
-        sonido.stop();
         sonido =  MediaPlayer.create(this,mp3Zona);
         sonido.start();
     }
