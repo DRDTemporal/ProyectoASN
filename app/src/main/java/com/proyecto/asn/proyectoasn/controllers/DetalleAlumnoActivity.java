@@ -61,7 +61,10 @@ public class DetalleAlumnoActivity extends AppCompatActivity implements OnClickL
         alumnoRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                setInfoAlumno(snapshot.getValue(Alumno.class));
+                try{
+                    setInfoAlumno(snapshot.getValue(Alumno.class));
+                }catch (Exception ignored){}
+
             }
 
             @Override
