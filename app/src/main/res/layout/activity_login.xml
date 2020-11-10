@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:text="@string/se_ha_olvidado_de_contrasena"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btnLogin"

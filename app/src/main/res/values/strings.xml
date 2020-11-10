@@ -62,6 +62,7 @@
     <string name="editado_clase">Se ha editado el curso</string>
     <string name="eliminar_curso">Eliminar Curso</string>
     <string name="pregunta_eliminar_curso">¿Quieres eliminar este curso?</string>
+    <string name="pregunta_eliminar_alumno">¿Quieres eliminar este alumno?</string>
     <string name="afirmacion_eliminado_curso">Se ha eliminado el curso</string>
     <string name="Ingrese_el_apellido_del_alumno">Ingrese el apellido del alumno</string>
     <string name="agregado_alumno">Se ha agregado al alumno</string>

@@ -46,6 +46,9 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
         findViewById(R.id.btnCabeza).setOnClickListener(this);
         findViewById(R.id.btnOjo1).setOnClickListener(this);
         findViewById(R.id.btnOjo2).setOnClickListener(this);
+        findViewById(R.id.btnOreja1).setOnClickListener(this);
+        findViewById(R.id.btnOreja2).setOnClickListener(this);
+        findViewById(R.id.btnBoca).setOnClickListener(this);
         findViewById(R.id.btnMano1).setOnClickListener(this);
         findViewById(R.id.btnMano2).setOnClickListener(this);
         findViewById(R.id.btnPecho).setOnClickListener(this);
@@ -76,6 +79,15 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
             case R.id.btnOjo1:
             case R.id.btnOjo2:
                 sonarInteraccion(R.raw.ojos);
+                break;
+
+            case R.id.btnOreja1:
+            case R.id.btnOreja2:
+                sonarInteraccion(R.raw.oreja);
+                break;
+
+            case R.id.btnBoca:
+                sonarInteraccion(R.raw.boca);
                 break;
 
             case R.id.btnMano1:
