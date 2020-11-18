@@ -88,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:hint="@string/nombres"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                 android:importantForAutofill="no"
                 android:textColor="@color/colorAccent"
                 android:textColorHint="@color/colorAccent" />
@@ -98,6 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:hint="@string/apellidos"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                 android:importantForAutofill="no"
                 android:textColor="@color/colorAccent"
                 android:textColorHint="@color/colorAccent" />

@@ -167,7 +167,7 @@ public class DetalleAlumnoActivity extends AppCompatActivity implements OnClickL
 
     private void eliminarAlumno() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.eliminar_curso);
+        builder.setTitle(R.string.pregunta_eliminar_alumno);
         builder.setMessage(R.string.pregunta_eliminar_alumno);
 
         builder.setPositiveButton(R.string.aceptar, new DialogInterface.OnClickListener() {
