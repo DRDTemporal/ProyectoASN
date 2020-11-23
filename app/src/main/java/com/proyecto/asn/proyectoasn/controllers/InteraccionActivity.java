@@ -40,6 +40,10 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     private void inicializarVistas() {
         findViewById(R.id.btnShow).setOnClickListener(this);
@@ -176,7 +180,13 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
 
 
     private void sonarInteraccion(int mp3Zona) {
-        sonido =  MediaPlayer.create(this,mp3Zona);
-        sonido.start();
+        try {
+            sonido.stop();
+            sonido =  MediaPlayer.create(this,mp3Zona);
+            sonido.start();
+        }catch (Exception ignored){
+
+        }
+
     }
 }
