@@ -41,9 +41,17 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onPause() {
+        super.onPause();
+        sonido.stop();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        sonido.stop();
+    }
+
 
     private void inicializarVistas() {
         findViewById(R.id.btnShow).setOnClickListener(this);
@@ -68,6 +76,7 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
         imgNo = findViewById(R.id.imgNO);
 
     }
+
 
     @SuppressLint("NonConstantResourceId")
     @Override
