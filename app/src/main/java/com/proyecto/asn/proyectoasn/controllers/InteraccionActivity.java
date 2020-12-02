@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaDataSource;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 
 import com.proyecto.asn.proyectoasn.R;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -76,6 +79,8 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
         imgNo = findViewById(R.id.imgNO);
 
     }
+
+
 
 
     @SuppressLint("NonConstantResourceId")
@@ -191,11 +196,19 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
     private void sonarInteraccion(int mp3Zona) {
         try {
             sonido.stop();
-            sonido =  MediaPlayer.create(this,mp3Zona);
-            sonido.start();
         }catch (Exception ignored){
 
         }
+
+        try {
+            AssetFileDescriptor afd = this.getResources().openRawResourceFd(mp3Zona);
+            sonido.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+            sonido.prepare();
+            sonido.start();
+        } catch (Exception ignored) {
+
+        }
+
 
     }
 }
