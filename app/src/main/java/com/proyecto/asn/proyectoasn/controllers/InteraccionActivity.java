@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.proyecto.asn.proyectoasn.R;
 
-import java.io.IOException;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -196,16 +196,9 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
     private void sonarInteraccion(int mp3Zona) {
         try {
             sonido.stop();
-        }catch (Exception ignored){
-
-        }
-
-        try {
-            AssetFileDescriptor afd = this.getResources().openRawResourceFd(mp3Zona);
-            sonido.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
-            sonido.prepare();
+            sonido = MediaPlayer.create(this,mp3Zona);
             sonido.start();
-        } catch (Exception ignored) {
+        }catch (Exception ignored){
 
         }
 
