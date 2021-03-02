@@ -83,8 +83,6 @@ public class InteraccionActivity extends AppCompatActivity  implements OnClickLi
     }
 
 
-
-
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
